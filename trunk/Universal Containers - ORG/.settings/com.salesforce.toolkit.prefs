@@ -1,0 +1,9 @@
+#Mon Apr 14 16:23:50 EDT 2008
+eclipse.preferences.version=1
+endpoint=https\://www.salesforce.com/services/Soap/u/12.0
+keependpoint=false
+namespacePrefix=
+proxyPort=0
+proxyServer=
+readTimeout=60
+username=admin@applab.finalmario.com
