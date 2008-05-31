@@ -1,0 +1,8 @@
+<apex:page standardController="Position__c">
+	<apex:pageBlock title="Hello {!$User.FirstName}!">
+	This is the {!Position__c.name} position. It is currently <b>{!Position__c.Status__c}</b>.
+	</apex:pageBlock>
+	<apex:detail relatedList="false" title="false"/>
+	And the number of applications for this Position is:
+	<apex:detail subject="{!Position__c.Job_Applications__c}"relatedList="false" title="false"/>
+</apex:page>

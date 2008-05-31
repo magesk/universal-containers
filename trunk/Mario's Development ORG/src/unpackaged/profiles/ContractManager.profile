@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>testCustomApplication</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>MarioTestObject__c.MarioTestField__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>Position__c.Status__c</field>
+    </fieldLevelSecurities>
+    <fieldLevelSecurities>
+        <editable>true</editable>
+        <field>Position__c.ownerId__c</field>
+    </fieldLevelSecurities>
+    <objectPermissions>
+        <object>Job_Application__c</object>
+    </objectPermissions>
+    <objectPermissions>
+        <object>MarioTestObject__c</object>
+    </objectPermissions>
+    <objectPermissions>
+        <object>Position__c</object>
+    </objectPermissions>
+</Profile>
