@@ -1,0 +1,11 @@
+#Thu Jul 03 17:09:16 EDT 2008
+eclipse.preferences.version=1
+endpointApiVersion=13.0
+endpointEnvironment=Sandbox
+endpointServer=test.salesforce.com
+httpsProtocol=true
+keependpoint=false
+metadataFormatVersion=13.0
+namespacePrefix=
+readTimeout=400
+username=admin@applab.finalmario.com.mariotest
