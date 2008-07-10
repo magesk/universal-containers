@@ -1,5 +1,5 @@
 public class referenceDupePreventerTests {
-	// This is a test change to my class
+	// I am partner 2
 	static testMethod void testReferenceDupPreventer() {
 
 		// First make sure there are no references already in the system
