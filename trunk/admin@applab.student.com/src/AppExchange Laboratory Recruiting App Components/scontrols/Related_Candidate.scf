@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC
+"-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Candidate</title>
+<!-- Style Sheets supplied by Salesforce.com -->
+<link href="/sCSS/1159551066000/Theme2/default/elements.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" /><link href="/sCSS/1159551066000/Theme2/default/common.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" /><link href="/css/assistive.css" media="aural,braille,embossed" rel="stylesheet" type="text/css" /><link href="/sCSS/1159556068000/Theme2/00D30000000FvEZ/00530000001EAhV/dCustom.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" />
+
+
+<script src="/soap/ajax/8.0/connection.js"></script>
+<script>
+
+var candidateId= "{!Job_Application__c.CandidateId__c}";
+
+function initPage() {
+try{
+//alert(candidateId);
+var record = sforce.connection.retrieve("Name, First_Name__c,Last_Name__c,Phone__c,Mobile__c,Email__c", "Candidate__c", [candidateId])[0];
+
+var output = "<div class='bPageBlock secondaryPalette' id='ep'>";
+output += "<div class='pbBody'><div class='pbSubsection'>";
+output += "<table class='detailList' cellpadding='0' cellspacing='0' border='0'>";
+output += "<tr><td class='labelCol' colspan=1>Candidate </td>"
+output += "<td class='dataCol col02' colspan=3><a target='_top' href=/" + candidateId + ">" + record.Name + "</a></td>";
+output += "<tr><td class='labelCol'>Name </td>";
+output += "<td class='dataCol col02'>" + record.First_Name__c + " " + record.Last_Name__c + "</td>";
+output += "<td class='labelCol'>Phone </td>";
+output += "<td class='dataCol'>" + record.Phone__c + "</td></tr>";
+output += "<tr><td class='labelCol last'>Email </td>";
+output += "<td class='dataCol col02 last'><a href='mailto:" + record.Email__c + "'>" + record.Email__c + "</a></td>";
+output += "<td class='labelCol last'>Mobile </td>";
+output += "<td class='dataCol last'>" + record.Mobile__c + "</td></tr>";
+output += "</table>";
+output += "</div></div></div>";
+
+document.body.innerHTML += output;
+
+} catch (e) {
+document.body.innerHTML += "Error retrieving candidate information";
+document.body.innerHTML += "<br>Fault code: " + e.faultcode;
+document.body.innerHTML += "<br>Fault string: " + e.faultstring;
+}
+}
+</script>
+</head>
+<body class="custom customTab79 detailPage" onload="initPage();">
+<div id="mainbody"></div>
+</body>
+</html>
