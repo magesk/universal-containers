@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scontrol xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contentSource>HTML</contentSource>
+    <description>This S-Control pulls back certain fields from a Candidate record and displays them in a table that is formatted to have the same look &amp; feel as Salesforce.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Related Candidate</name>
+    <supportsCaching>true</supportsCaching>
+</Scontrol>

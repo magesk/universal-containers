@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN” "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- Stylesheets to match Salesforce look and feel -->
+<link href="/sCSS/1159551066000/Theme2/default/elements.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" /><link href="/sCSS/1159551066000/Theme2/default/common.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" /><link href="/css/assistive.css" media="aural,braille,embossed" rel="stylesheet" type="text/css" /><link href="/sCSS/1159556068000/Theme2/00D30000000FvEZ/00530000001EAhV/dCustom.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" />
+
+<script src="/soap/ajax/8.0/connection.js"></script>
+<script language="javascript">
+
+// DECLARE CONSTANTS
+var POS_ID="{!Position__c.Id}";
+var POS_STAT="{!Position__c.Status__c}";
+var POS_LINK="{!Position__c.Link}";
+var POP_MSG="";
+
+function closeApps(){
+// first: validate the Position is in the Closed status
+if (POS_STAT == "Closed"){
+// second: we get all related Job_Application__c records in an Open status
+var records = getApps();
+// third: we update all the Job_App__c records to Closed - Position Closed
+if (records != null) {
+if (records.length > 0) {
+updateApps(records);
+}
+}
+}
+else { POP_MSG += "Position Must Be Closed to Activate this Button"; }
+
+//document.getElementById["output"].innerHTML = POP_MSG;
+alert(POP_MSG);
+window.opener.navigate(POS_LINK);
+window.close();
+return;
+}
+
+function getApps(){
+/************************************************************************
+* STUDENT TASK #1:
+* Populate the qStr variable with a SOQL string that brings back the Id, Stage__c, Status__c fields
+* from the Job_Application__c object. You only want Job_Application__c records whose Status is
+* equal to 'Open' and whose Position__c foreign key field is equal to the Position Id (POS_ID)
+* NOTE: This function will return the 1st batch of related Job App records
+*
+**************************************************************************/
+var qStr = ""; // WRITE YOUR SOQL HERE BETWEEN THE DOUBLE QUOTES
+
+try{
+var queryResults = sforce.connection.query(qStr);
+if (queryResults != null){
+if (queryResults.size > 0){
+var records = queryResults.getArray('records');
+}
+else { POP_MSG += "No Related Job_Application__c Records Found"; }
+}
+} catch (e){
+POP_MSG += "\r\nERROR\r\n" + e;
+}
+
+return records;
+}
+
+function updateApps(records){
+// first we need to loop through the records and set the field values we want to update
+/*****************************************************************
+* STUDENT TASK #2: Write code here to loop through the records passed into this function.
+* We want to set the Status field to 'Closed', and the Stage field to 'Closed - Position Closed'
+*
+*****************************************************************/
+// *BEGIN* YOUR CODE HERE
+
+
+// *END* OF YOUR CODE
+
+// now we perform the update and read the results
+try{
+var iCounter = 0; // this is a variable to count the # of successful record updates
+/*****************************************************************
+* STUDENT TASK #3: Write code here to update the records. After the update call is made
+* make sure you go through the results and either throw an error, if there was an error on a record,
+* or increase the iCounter variable if the record update was a success
+*
+*****************************************************************/
+// *BEGIN* YOUR CODE HERE
+
+
+// *END* OF YOUR CODE
+
+// The line below sets a message to display if nothing goes wrong
+POP_MSG += iCounter + " Job Applications Closed";
+}catch (e){
+POP_MSG += "\r\nERROR\r\n" + e;
+}
+
+return;
+}
+
+</script>
+</head>
+<body onload="closeApps();">
+<center>
+<br />
+<table width="100%">
+<tr>
+<td align=center>
+<span class="moduleTitle">Updating Job Applications... please wait</span>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>
+<img src="/img/waiting_dots.gif" alt="Please wait..." title="Please wait..." width=196 height=20>
+</td>
+</tr>
+</table>
+<br />
+<div id="output"></div>
+</center>
+</body>
+</html>
