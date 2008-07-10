@@ -1,3 +1,0 @@
-http://localhost:8080/SalaryIntegratedControl_Answers/validate.jsp?sessionId=
-{!API.Session_ID}&serverURL={!API.Enterprise_Server_URL_90}&
-posId={!Position__c.Id}&userId={!$User.Id}
