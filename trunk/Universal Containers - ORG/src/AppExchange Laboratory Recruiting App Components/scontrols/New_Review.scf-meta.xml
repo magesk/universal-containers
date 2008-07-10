@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Scontrol xmlns="http://soap.sforce.com/2006/04/metadata">
-    <contentSource>HTML</contentSource>
-    <description>This S-Control will be used to override the Review__c object&apos;s &quot;New&quot; button to display a custom form. We need the custom form because the Review questions are too long for the Salesforce standard field label maximum length.</description>
-    <encodingKey>UTF-8</encodingKey>
-    <name>New Review</name>
-    <supportsCaching>true</supportsCaching>
-</Scontrol>
